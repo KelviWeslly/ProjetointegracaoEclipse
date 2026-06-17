@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class TesteConta {
+
+	public static void main(String[] args) {
+		
+
+	        Scanner scanner = new Scanner(System.in);
+
+	        //conta polpança
+
+	        System.out.println("=== Criando Conta Poupança ===");
+	        System.out.print("Nome do cliente: ");
+	        String nomePoupanca = scanner.nextLine();
+
+	        System.out.print("Número da conta: ");
+	        int numeroPoupanca = scanner.nextInt();
+
+	        System.out.print("Dia do rendimento: ");
+	        int diaRendimento = scanner.nextInt();
+
+	        ContaPoupanca poupanca =
+	        new ContaPoupanca(nomePoupanca, numeroPoupanca, diaRendimento);
+
+	        System.out.print("Valor para depósito: ");
+	        double depositoPoupanca = scanner.nextDouble();
+	        poupanca.depositar(depositoPoupanca);
+
+	        System.out.print("Valor para saque: ");
+	        double saquePoupanca = scanner.nextDouble();
+	        poupanca.sacar(saquePoupanca);
+
+	        System.out.print("Taxa de rendimento (ex: 0.05 para 5%): ");
+	        double taxaRendimento = scanner.nextDouble();
+	        poupanca.calcularNovoSaldo(taxaRendimento);
+
+	        System.out.println("\n--- Dados da Conta Poupança ---");
+	        poupanca.mostrarDados();
+
+	        //conta especial
+
+	        scanner.nextLine(); 
+
+	        System.out.println("\n=== Criando Conta Especial ===");
+	        System.out.print("Nome do cliente: ");
+	        String nomeEspecial = scanner.nextLine();
+
+	        System.out.print("Número da conta: ");
+	        int numeroEspecial = scanner.nextInt();
+
+	        System.out.print("Limite da conta especial: ");
+	        double limite = scanner.nextDouble();
+
+	        ContaEspecial especial =
+	                new ContaEspecial(nomeEspecial, numeroEspecial, limite);
+
+	        System.out.print("Valor para depósito: ");
+	        double depositoEspecial = scanner.nextDouble();
+	        especial.depositar(depositoEspecial);
+
+	        System.out.print("Valor para saque: ");
+	        double saqueEspecial = scanner.nextDouble();
+	        especial.sacar(saqueEspecial);
+
+	        System.out.println("\n--- Dados da Conta Especial ---");
+	        especial.mostrarDados();
+
+	        scanner.close();
+	    }
+	}
