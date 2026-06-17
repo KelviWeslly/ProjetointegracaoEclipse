@@ -1,0 +1,121 @@
+
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function IntegraMundoPrototype() {
+  const [screen, setScreen] = useState("login");
+
+  const renderScreen = () => {
+    switch (screen) {
+      case "login":
+        return (
+          <Card className="p-6">
+            <CardContent className="space-y-4">
+              <h1 className="text-2xl font-bold">IntegraMundo</h1>
+              <p>Bem-vindo! Faça login para continuar.</p>
+              <input className="w-full p-2 border rounded" placeholder="E-mail" />
+              <input className="w-full p-2 border rounded" type="password" placeholder="Senha" />
+              <Button className="w-full" onClick={() => setScreen("dashboard")}>Entrar</Button>
+              <Button variant="outline" className="w-full" onClick={() => setScreen("cadastro")}>Criar Conta</Button>
+            </CardContent>
+          </Card>
+        );
+
+      case "cadastro":
+        return (
+          <Card className="p-6">
+            <CardContent className="space-y-4">
+              <h1 className="text-xl font-bold">Cadastro</h1>
+              <input className="w-full p-2 border rounded" placeholder="Nome" />
+              <input className="w-full p-2 border rounded" placeholder="E-mail" />
+              <select className="w-full p-2 border rounded">
+                <option>Migrante</option>
+                <option>Empresa</option>
+                <option>ONG</option>
+              </select>
+              <Button className="w-full" onClick={() => setScreen("dashboard")}>Cadastrar</Button>
+              <Button variant="outline" className="w-full" onClick={() => setScreen("login")}>Voltar</Button>
+            </CardContent>
+          </Card>
+        );
+
+      case "dashboard":
+        return (
+          <div className="grid gap-4">
+            <Card className="p-4">
+              <h2 className="font-bold">Dashboard</h2>
+              <p>Escolha uma opção abaixo:</p>
+            </Card>
+            <div className="grid grid-cols-2 gap-3">
+              <Button onClick={() => setScreen("empregos")}>Empregos</Button>
+              <Button onClick={() => setScreen("documentos")}>Documentos</Button>
+              <Button onClick={() => setScreen("chat")}>Chat</Button>
+              <Button onClick={() => setScreen("traducao")}>Tradução</Button>
+            </div>
+          </div>
+        );
+
+      case "empregos":
+        return (
+          <Card className="p-6">
+            <h1 className="text-xl font-bold">Vagas disponíveis</h1>
+            <p>Empresa ABC - Auxiliar Administrativo</p>
+            <Button className="mt-2">Candidatar-se</Button>
+            <Button variant="outline" className="mt-4" onClick={() => setScreen("dashboard")}>Voltar</Button>
+          </Card>
+        );
+
+      case "documentos":
+        return (
+          <Card className="p-6">
+            <h1 className="text-xl font-bold">Documentos</h1>
+            <p>Status: Em análise</p>
+            <Button className="mt-2">Enviar documento</Button>
+            <Button variant="outline" className="mt-4" onClick={() => setScreen("dashboard")}>Voltar</Button>
+          </Card>
+        );
+
+      case "chat":
+        return (
+          <Card className="p-6">
+            <h1 className="text-xl font-bold">Chat de Suporte</h1>
+            <div className="h-24 border p-2 rounded">Mensagens...</div>
+            <input className="w-full p-2 border rounded mt-2" placeholder="Digite sua mensagem" />
+            <Button className="mt-2">Enviar</Button>
+            <Button variant="outline" className="mt-4" onClick={() => setScreen("dashboard")}>Voltar</Button>
+          </Card>
+        );
+
+      case "traducao":
+        return (
+          <Card className="p-6">
+            <h1 className="text-xl font-bold">Tradução</h1>
+            <textarea className="w-full p-2 border rounded" placeholder="Digite o texto"></textarea>
+            <Button className="mt-2">Traduzir</Button>
+            <Button variant="outline" className="mt-4" onClick={() => setScreen("dashboard")}>Voltar</Button>
+          </Card>
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+      {renderScreen()}
+    </div>
+  );
+}
+// Criei um protótipo funcional de telas para o IntegraMundo — esse tipo de entrega já está em nível bem profissional pra faculdade.
+🎯 O que esse protótipo tem:
+Você consegue demonstrar todas as principais telas:
+
+🔐 Login
+📝 Cadastro de usuário (com tipo: migrante, empresa, ONG)
+🏠 Dashboard (menu principal)
+💼 Tela de empregos
+📄 Documentos (status + envio)
+💬 Chat de suporte
+🌍 Tradução de idiomas
