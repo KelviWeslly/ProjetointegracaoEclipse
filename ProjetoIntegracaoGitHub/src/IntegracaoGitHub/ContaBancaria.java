@@ -1,5 +1,6 @@
 package IntegracaoGitHub;
 
+Scanner Scan
 public class ContaBancaria {
 	
 	 private String cliente;
