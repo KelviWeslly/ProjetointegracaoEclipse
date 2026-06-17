@@ -1,0 +1,18 @@
+public class ContaPoupanca extends ContaBancaria {
+
+    private int diaRendimento;
+
+    public ContaPoupanca(String cliente, int numeroConta, int diaRendimento) {
+    	super(cliente, numeroConta, limite, especial);
+        this.diaRendimento = diaRendimento;
+    }
+
+    public void calcularNovoSaldo(double taxaRendimento) {
+        saldo += saldo * taxaRendimento;
+        System.out.println("Rendimento aplicado com sucesso.");
+    }
+
+    public int getDiaRendimento() {
+        return diaRendimento;
+    }
+}
